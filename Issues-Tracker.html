@@ -49,10 +49,10 @@
       </nav>
     </section>
     <section class="bg-white mt-10">
-      <div class="flex gap-5 w-10/12 mx-auto shadow-sm">
-        <div id="allDiv" class="btn btn-primary">All</div>
-        <div id="openDiv" class="btn">Open</div>
-        <div id="closedDiv" class="btn">Closed</div>
+      <div class="flex p-5 gap-5 w-10/12 mx-auto shadow-sm">
+        <div id="allDiv" class="btn btn-primary px-10">All</div>
+        <div id="openDiv" class="btn px-10">Open</div>
+        <div id="closedDiv" class="btn px-10">Closed</div>
       </div>
     </section>
     <section
@@ -64,7 +64,7 @@
         </div>
 
         <div class="grid grid-cols-1">
-          <p><span>50</span> Issues</p>
+          <p  class="font-bold"><span id="totalIssues">0</span> Issues</p>
           <p>Track and manage your project issues</p>
         </div>
       </div>
@@ -75,9 +75,9 @@
         <p>Closed</p>
       </div>
     </section>
-    <section class="w-10/12 mx-auto bg-[#e4e4e7] ">
-      <div class=" p-2 grid grid-cols-4 mx-auto  gap-2">
-        <div class="bg-white space-y-3 m-3 p-3">
+    <section id="gitHtbTotalIssues" class="w-10/12 mx-auto bg-[#e4e4e7] ">
+      <div class=" p-2 grid grid-cols-4 mx-auto   gap-2">
+        <div class="allcard bg-white space-y-3 m-3 p-3 rounded-lg">
         <div class="flex justify-between">
           <img src="./assets/Open-Status.png" alt="" />
           <h1 class="bg-[#feecec] text-[#ef4444]">High</h1>
@@ -95,7 +95,8 @@
         <p>1/15/2024</p>
         </div>
       </div>
-      <script src="./script/issues.js"></script>
+      
     </section>
+    <script src="./script/issues.js"></script>
   </body>
 </html>
