@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GitHub Issues Tracker</title>
+    <!-- daisyUI and Tailwind CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- cdn fontawesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <section class="w-11/12 mx-auto mt-4">
+      <nav class="md:flex justify-between sm:grid sm:grid-cols-1">
+        <div class="flex items-center gap-2">
+          <img class="w-6" src="./assets/github-logo.png" alt="" />
+          <p class="font-semibold text-2xl">GitHub Issues Tracker</p>
+        </div>
+        <div class="">
+          <div class="join gap-2">
+            <div class="">
+              <label class="input validator join-item">
+                <i class="fa-brands fa-sistrix"></i>
+                <input
+                  type="email"
+                  class=""
+                  placeholder=" Search issues..."
+                  required
+                />
+              </label>
+              <div class="validator-hint hidden">Search issues...</div>
+            </div>
+            <button class="btn btn-primary join-item">
+              <i class="fa-solid fa-plus"></i>New Issue
+            </button>
+          </div>
+        </div>
+      </nav>
+    </section>
+    <section class="bg-white mt-10">
+      <div class="flex gap-5 w-10/12 mx-auto shadow-sm">
+        <div id="allDiv" class="btn btn-primary">All</div>
+        <div id="openDiv" class="btn">Open</div>
+        <div id="closedDiv" class="btn">Closed</div>
+      </div>
+    </section>
+    <section
+      class="flex gap-5 mt-5 w-10/12 mx-auto p-3 justify-between shadow-sm"
+    >
+      <div class="flex items-center gap-2">
+        <div class="bg-[#ECE4FF] rounded-lg">
+          <img src="./assets/Aperture.png" alt="" />
+        </div>
+
+        <div class="grid grid-cols-1">
+          <p><span>50</span> Issues</p>
+          <p>Track and manage your project issues</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="bg-[#00a96e] rounded-lg w-3 h-3"></span>
+        <p>Open</p>
+        <span class="bg-[#a85587] rounded-lg w-3 h-3"></span>
+        <p>Closed</p>
+      </div>
+    </section>
+    <section class="w-10/12 mx-auto bg-[#e4e4e7] ">
+      <div class=" p-2 grid grid-cols-4 mx-auto  gap-2">
+        <div class="bg-white space-y-3 m-3 p-3">
+        <div class="flex justify-between">
+          <img src="./assets/Open-Status.png" alt="" />
+          <h1 class="bg-[#feecec] text-[#ef4444]">High</h1>
+        </div>
+        <h1 class=" font-bold">Fix navigation menu on mobile devices</h1>
+        <p>
+          The navigation menu doesn't collapse properly on mobile devices...
+        </p>
+        <div class="flex gap-2">
+         <p class="bg-[#feecec] text-[#ef4444] rounded-xl px-5">Bug</p>
+        <p class="bg-[#fde68a] text-[#d97706] rounded-xl px-5">help wanted</p>
+        </div>
+        
+        <p>#1 by john_doe</p>
+        <p>1/15/2024</p>
+        </div>
+      </div>
+      <script src="./script/issues.js"></script>
+    </section>
+  </body>
+</html>
