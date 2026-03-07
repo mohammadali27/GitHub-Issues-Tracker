@@ -26,10 +26,25 @@ const displayLessons = (lessens) => {
     } else if (lessen.priority === "low") {
       positionClass = "bg-[#eeeff2] text-[#abb1bb]";
     }
+
+    let allcards = "allcard  bg-white  space-y-3 m-3 p-3 rounded-lg shadow-lg min-h-[320px]";
+    if (lessen.status === "open") {
+      allcards += " border-t-4 border-t-[#00a96e]";
+    } else if (lessen.status === "closed") {
+      allcards += " border-t-4 border-t-[#a85587]";
+    }
+
+    let statusimg = "";
+    if (lessen.status === "open") {
+      statusimg = "./assets/Open-Status.png";
+    } else {
+      statusimg = "./assets/Closed- Status .png";
+    }
+
     const btnlesson = document.createElement("div");
-    btnlesson.innerHTML = `<div class="allcard  bg-white  space-y-3 m-3 p-3 rounded-lg shadow-lg  h-full ">
+    btnlesson.innerHTML = `<div class="${allcards}">
         <div class="flex justify-between">
-          <img src="./assets/Open-Status.png" alt="" />
+          <img src="${statusimg}" alt="" />
           <h1 class="${positionClass}  uppercase rounded-lg px-5">${lessen.priority}</h1>
         </div>
         <h1 class=" font-bold">${lessen.title}</h1>
@@ -41,7 +56,7 @@ const displayLessons = (lessens) => {
         <p class="bg-[#fde68a] text-[#d97706] rounded-xl px-5 uppercase">help wanted</p>
         </div>
         
-        <p >${lessen.id} by ${lessen.author} </p>
+        <p ># ${lessen.id} by ${lessen.author} </p>
         <p>1/15/2024</p>
         
         </div>`;
@@ -59,8 +74,8 @@ allDiv.addEventListener("click", function () {
 });
 
 openDiv.addEventListener("click", function () {
-  const closedIssues = allIssuse.filter((issue) => issue.status === "open");
-  displayLessons(closedIssues);
+  const openIssues = allIssuse.filter((issue) => issue.status === "open");
+  displayLessons(openIssues);
   openDiv.classList.add("btn-primary");
   allDiv.classList.remove("btn-primary");
   closedDiv.classList.remove("btn-primary");
