@@ -12,7 +12,18 @@ const lodeIsses = () => {
       displayLessons(allIssuse);
     });
 };
+const lodeWordDitile = async (id) => {
+  const url = `https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`;
+  const res = await fetch(url);
+  const ditles = await res.json();
+  displayWord(ditles.data);
+  const ditilesBox =document.getElementById("ditiles-contener");
+  ditilesBox.innerHTML="hi ";
+document.getElementById("my_modal_5").showModal();
+};
+const displayWord =(word)=>{
 
+}
 const displayLessons = (lessens) => {
   console.log(lessens);
   const sectionContinor = document.getElementById("gitHtbTotalIssues");
@@ -27,7 +38,8 @@ const displayLessons = (lessens) => {
       positionClass = "bg-[#eeeff2] text-[#abb1bb]";
     }
 
-    let allcards = "allcard  bg-white  space-y-3 m-3 p-3 rounded-lg shadow-lg min-h-[320px]";
+    let allcards =
+      "allcard  bg-white  space-y-3 m-3 p-3 rounded-lg shadow-lg min-h-[320px]";
     if (lessen.status === "open") {
       allcards += " border-t-4 border-t-[#00a96e]";
     } else if (lessen.status === "closed") {
@@ -42,7 +54,7 @@ const displayLessons = (lessens) => {
     }
 
     const btnlesson = document.createElement("div");
-    btnlesson.innerHTML = `<div class="${allcards}">
+    btnlesson.innerHTML = `<div onclick="lodeWordDitile(${lessen.id})" class="${allcards}">
         <div class="flex justify-between">
           <img src="${statusimg}" alt="" />
           <h1 class="${positionClass}  uppercase rounded-lg px-5">${lessen.priority}</h1>

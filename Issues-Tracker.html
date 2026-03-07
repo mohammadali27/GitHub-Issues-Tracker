@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GitHub Issues Tracker</title>
+    <link
+      rel="shortcut icon"
+      href="./assets/github-logo.png"
+      type="image/x-icon"
+    />
     <!-- daisyUI and Tailwind CSS -->
     <link
       href="https://cdn.jsdelivr.net/npm/daisyui@5"
@@ -22,7 +27,7 @@
   </head>
   <body>
     <section class="w-11/12 mx-auto mt-4">
-      <nav class="sm:grid sm:grid-cols-1 md:flex md:justify-between ">
+      <nav class="sm:grid sm:grid-cols-1 md:flex md:justify-between">
         <div class="flex items-center gap-2">
           <img class="w-6" src="./assets/github-logo.png" alt="" />
           <p class="font-semibold text-2xl">GitHub Issues Tracker</p>
@@ -64,7 +69,7 @@
         </div>
 
         <div class="grid grid-cols-1">
-          <p  class="font-bold"><span id="totalIssues">0</span> Issues</p>
+          <p class="font-bold"><span id="totalIssues">0</span> Issues</p>
           <p>Track and manage your project issues</p>
         </div>
       </div>
@@ -75,11 +80,27 @@
         <p>Closed</p>
       </div>
     </section>
-    <section id="gitHtbTotalIssues" class="w-10/12 sm:grid sm:grid-cols-1 md:grid md:grid-cols-4 gap-3 mx-auto bg-[#e4e4e7] ">
+    <section
+      id="gitHtbTotalIssues"
+      class="w-10/12 sm:grid sm:grid-cols-1 md:grid md:grid-cols-4 gap-3 mx-auto bg-[#e4e4e7]"
+    >
       <!-- <div class=" p-2 grid grid-cols-4 mx-auto   gap-2">
         
       </div> -->
     </section>
+    <!-- Open the modal using ID.showModal() method -->
+    <!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
+    <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+      <div class="modal-box">
+        <div id="ditiles-contener" class=""></div>
+        <div class="modal-action">
+          <form method="dialog">
+            <!-- if there is a button in form, it will close the modal -->
+            <button class="btn">Close</button>
+          </form>
+        </div>
+      </div>
+    </dialog>
     <script src="./script/issues.js"></script>
   </body>
 </html>
