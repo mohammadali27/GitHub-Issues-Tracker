@@ -16,9 +16,37 @@ const lodeWordDitile = async (id) => {
   const url = `https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`;
   const res = await fetch(url);
   const ditles = await res.json();
+  const issue=ditles.data
   displayWord(ditles.data);
   const ditilesBox =document.getElementById("ditiles-contener");
-  ditilesBox.innerHTML="hi ";
+  ditilesBox.innerHTML=` <div class=" space-y-5 ">
+      <h1 class="font-bold text-2xl">${issue.title}</h1>
+      
+      <ul class="flex gap-2">
+        <li class="bg-[#00a96e] rounded-xl px-5 ">${issue.status}</li>
+        <li>${issue.author}</li>
+        <li>${issue.date || "1/15/2024"}</li>
+      </ul>
+      <div class="flex gap-2">
+        <p class="bg-[#feecec] text-[#ef4444] rounded-xl px-5 uppercase">${issue.type || "Bug"}</p>
+        <p class="bg-[#fde68a] text-[#d97706] rounded-xl px-5 uppercase">
+          ${issue.label || "help wanted"}
+        </p>
+      </div>
+      <p>
+        ${issue.description}
+      </p>
+      <div class="flex gap-50">
+        <div class="">
+          <p>Assignee</p>
+          <p>${issue.author}</p>
+        </div>
+        <div class="">
+          <p>Priority:</p>
+          <p>High</p>
+        </div>
+      </div>
+    </div>`;
 document.getElementById("my_modal_5").showModal();
 };
 const displayWord =(word)=>{
@@ -39,7 +67,7 @@ const displayLessons = (lessens) => {
     }
 
     let allcards =
-      "allcard  bg-white  space-y-3 m-3 p-3 rounded-lg shadow-lg min-h-[320px]";
+      "allcard  bg-white  space-y-3 m-3 p-3 rounded-lg shadow-lg min-h-[350px]";
     if (lessen.status === "open") {
       allcards += " border-t-4 border-t-[#00a96e]";
     } else if (lessen.status === "closed") {
