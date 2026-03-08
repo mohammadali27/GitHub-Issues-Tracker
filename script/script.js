@@ -6,9 +6,10 @@
             const password = passwordInput.value;
             if(username === 'admin' && password === 'admin123'){
                 alert('Login successful!');
-                window.location.href = 'issues-Tracker.html';
+                window.location.href="IssuesTracker.html";
             }else{
                 alert('Invalid username or password. Please try again.');
                 return;
             }
         })
+        
