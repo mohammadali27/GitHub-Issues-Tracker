@@ -3,23 +3,40 @@ const openDiv = document.getElementById("openDiv");
 const closedDiv = document.getElementById("closedDiv");
 let totalIssues = document.getElementById("totalIssues");
 let githubTotalIssues = document.getElementById("gitHtbTotalIssues");
+// let spner = document.getElementById("speer");
 let allIssuse = [];
+
+// const manegeSpeer = (status) => {
+//   if (status === true) {
+//     spner.classList.remove("hidden");
+//     githubTotalIssues.classList.add("hidden");
+//   } else {
+//     githubTotalIssues.classList.remove("hidden");
+//     spner.classList.add("hidden");
+//   }
+// };
+
 const lodeIsses = () => {
+  // manegeSpeer(true);
   fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues")
     .then((res) => res.json())
     .then((json) => {
       allIssuse = json.data;
       displayLessons(allIssuse);
-    });
+       manegeSpeer(false);
+    })
+    
 };
 const lodeWordDitile = async (id) => {
+  // manegeSpeer(true);
   const url = `https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`;
   const res = await fetch(url);
   const ditles = await res.json();
-  const issue=ditles.data
+
+  const issue = ditles.data;
   displayWord(ditles.data);
-  const ditilesBox =document.getElementById("ditiles-contener");
-  ditilesBox.innerHTML=` <div class=" space-y-5 ">
+  const ditilesBox = document.getElementById("ditiles-contener");
+  ditilesBox.innerHTML = ` <div class=" space-y-5 ">
       <h1 class="font-bold text-2xl">${issue.title}</h1>
       
       <ul class="flex gap-2">
@@ -47,11 +64,11 @@ const lodeWordDitile = async (id) => {
         </div>
       </div>
     </div>`;
-document.getElementById("my_modal_5").showModal();
-};
-const displayWord =(word)=>{
 
-}
+  document.getElementById("my_modal_5").showModal();
+  // manegeSpeer(false);
+};
+const displayWord = (word) => {};
 const displayLessons = (lessens) => {
   console.log(lessens);
   const sectionContinor = document.getElementById("gitHtbTotalIssues");
@@ -78,7 +95,7 @@ const displayLessons = (lessens) => {
     if (lessen.status === "open") {
       statusimg = "./assets/Open-Status.png";
     } else {
-      statusimg = "./assets/Closed- Status .png";
+      statusimg = "./assets/Closed- Status.png";
     }
 
     const btnlesson = document.createElement("div");
@@ -102,6 +119,7 @@ const displayLessons = (lessens) => {
         </div>`;
     sectionContinor.append(btnlesson);
   }
+
   totalIssues.innerText = lessens.length;
 };
 lodeIsses();
@@ -133,3 +151,20 @@ function countIsses() {
   const allCard = document.querySelectorAll(".allcard");
   totalIssues.innerText = allCard.length;
 }
+document.getElementById("btn-search").addEventListener("click", () => {
+  const input = document.getElementById("input-search");
+  const searchValue = input.value.trim().toLowerCase();
+  console.log(searchValue);
+  fetch(
+    `https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchValue}`,
+  )
+    .then((res) => res.json())
+    .then((data) => {
+      const allWorld = data.data;
+      console.log(allWorld);
+      const featerWord = allWorld.filter((word) =>
+        word.title.toLowerCase().includes(searchValue)
+      );
+      displayLessons(featerWord);
+    });
+});

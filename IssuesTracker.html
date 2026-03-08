@@ -26,9 +26,9 @@
     />
   </head>
   <body>
-    <section class="w-11/12 mx-auto mt-4">
-      <nav class="sm:grid sm:grid-cols-1 md:flex md:justify-between">
-        <div class="flex items-center gap-2">
+    <section class="w-11/12 mx-auto mt-4 ">
+      <nav class="sm:grid sm:grid-cols-1 md:flex md:justify-between ">
+        <div class="flex items-center gap-2 ">
           <img class="w-6" src="./assets/github-logo.png" alt="" />
           <p class="font-semibold text-2xl">GitHub Issues Tracker</p>
         </div>
@@ -38,15 +38,16 @@
               <label class="input validator join-item">
                 <i class="fa-brands fa-sistrix"></i>
                 <input
+                  id="input-search"
                   type="email"
                   class=""
-                  placeholder=" Search issues..."
+                  placeholder=" Search ..."
                   required
                 />
               </label>
-              <div class="validator-hint hidden">Search issues...</div>
+              <div class="validator-hint hidden">Search result...</div>
             </div>
-            <button class="btn btn-primary join-item">
+            <button id="btn-search" class="btn btn-primary join-item">
               <i class="fa-solid fa-plus"></i>New Issue
             </button>
           </div>
@@ -59,6 +60,13 @@
         <div id="openDiv" class="btn px-10">Open</div>
         <div id="closedDiv" class="btn px-10">Closed</div>
       </div>
+    </section>
+    <section id="spner" class="flex justify-center items-center hidden">
+      <span class="loading loading-bars loading-xs"></span>
+      <span class="loading loading-bars loading-sm"></span>
+      <span class="loading loading-bars loading-md"></span>
+      <span class="loading loading-bars loading-lg"></span>
+      <span class="loading loading-bars loading-xl"></span>
     </section>
     <section
       class="flex gap-5 mt-5 w-10/12 mx-auto p-3 justify-between shadow-sm"
@@ -100,9 +108,9 @@
           </form>
         </div>
       </div>
-        <form method="dialog" class="modal-backdrop">
-          <button>close</button>
-        </form>
+      <form method="dialog" class="modal-backdrop">
+        <button>close</button>
+      </form>
     </dialog>
 
     <script src="./script/issues.js"></script>
